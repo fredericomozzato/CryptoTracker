@@ -1,8 +1,10 @@
 package com.fredericomozzato.cryptotracker.coin;
 
+import com.fredericomozzato.cryptotracker.portfolio.Portfolio;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,8 +21,11 @@ public class Coin {
     private BigDecimal amount;
     @Column(name = "rate")
     private BigDecimal usdRate;
+    @ManyToMany(mappedBy = "coins")
+    private List<Portfolio> portfolios;
 
-    public Coin() {}
+    public Coin() {
+    }
 
     public Coin(long id, String name, String ticker, BigDecimal amount, BigDecimal usdRate) {
         this.id = id;
