@@ -8,7 +8,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "coins")
 public class Coin {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
